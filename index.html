@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smriti's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Left sidebar - sticky */
+        .sidebar {
+            flex: 0 0 350px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #fff;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #667eea;
+            border: 4px solid rgba(255,255,255,0.3);
+        }
+        
+        .sidebar h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .sidebar p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            opacity: 0.95;
+            text-align: justify;
+        }
+        
+        .contact-links {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.1em;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+        
+        .contact-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Right content area - scrollable */
+        .content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            height: 100vh;
+        }
+        
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #2c3e50;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .project {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .project:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        
+        .project h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .project h3 a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .project h3 a:hover {
+            color: #5a6fd8;
+            text-decoration: underline;
+        }
+        
+        .project p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        
+        .project-tags {
+            margin-top: 15px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #f1f3f4;
+            color: #5f6368;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-right: 8px;
+            margin-bottom: 5px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                flex: none;
+                position: static;
+                height: auto;
+                padding: 30px 20px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+                height: auto;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                font-size: 36px;
+            }
+            
+            .sidebar h1 {
+                font-size: 1.8em;
+            }
+            
+            .content h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="profile-image">
+                👩‍💻
+            </div>
+            <h1>Hi, I'm Smriti!</h1>
+            <p>
+                Welcome to my portfolio! I am a Master's student in Computer Science at Columbia University, conducting research at the New York Genome Center in the Knowles Lab. My work focuses on developing deep learning models for integrative analysis of gene expression and alternative splicing in single-cell transcriptomic data.
+            </p>
+            <p style="margin-top: 20px;">
+                Previously, I earned my Sc.B. in Computational Biology from Brown University, where I studied alternative splicing regulation by RNA-binding protein condensates using computational analysis of bioimages.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:your.email@example.com">Email</a>
+                <a href="https://github.com/smritivaidyanathan">GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
+            </div>
+        </div>
+        
+        <!-- Right Content Area -->
+        <div class="content">
+            <h2>Projects</h2>
+            
+            <div class="project">
+                <h3><a href="https://github.com/smritivaidyanathan/scvi-tools-splicing">MultiVI-Splice</a></h3>
+                <p>Fork of <code>scvi-tools</code> extending MultiVI to jointly model gene expression and splicing. Also includes a single-modality splicing VAE built with a partial encoder and linear decoder.</p>
+                <div class="project-tags">
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">Single-cell</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">PyTorch</span>
+                </div>
+            </div>
+            
+            <div class="project">
+                <h3><a href="https://github.com/smritivaidyanathan/fly-model-continual-learning-extensions">Remembering to Learn: A Brain-Inspired Approach to Catastrophic Forgetting in AI</a></h3>
+                <p>Final project for Columbia Engineering. Extended FlyModel with BI-R, EWC, and cascade synapses to improve continual learning on CIFAR-100. Cascade synapses notably reduced memory loss without replay.</p>
+                <div class="project-tags">
+                    <span class="tag">Continual Learning</span>
+                    <span class="tag">Neural Networks</span>
+                    <span class="tag">CIFAR-100</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
+            
+            <div class="project">
+                <h3>Mama's Pastaria (VR Game)</h3>
+                <p>Final group project for Columbia's COMS W4172: 3D User Interfaces and Augmented Reality. A Unity-based VR cooking simulator where players prepare pasta dishes for customers using interactive mechanics inspired by Papa's Pizzeria and Cooking Mama.</p>
+                <div class="project-tags">
+                    <span class="tag">VR</span>
+                    <span class="tag">Unity</span>
+                    <span class="tag">C#</span>
+                    <span class="tag">Game Development</span>
+                </div>
+            </div>
+            
+            <div class="project">
+                <h3>Brain Tumor Segmentation and Survival Prediction (BRATS 2020)</h3>
+                <p>Final group project for Columbia's COMS W4995 005: Deep Learning for Computer Vision. Segmented tumor regions and predicted survival outcomes from BRATS 2020 MRI scans using U-Net and ResNet-based models.</p>
+                <div class="project-tags">
+                    <span class="tag">Medical Imaging</span>
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">U-Net</span>
+                    <span class="tag">ResNet</span>
+                </div>
+            </div>
+            
+            <div class="project">
+                <h3><a href="https://github.com/smritivaidyanathan/3D_Speckle_Volume_Quantifier">3D Speckle Volume Quantifier</a></h3>
+                <p>Custom analysis tool developed for my undergraduate honors thesis at Brown University. Quantifies nuclear speckle volumes from confocal z-stacks to study how the GA-binding transcription factor CLAMP influences splicing condensate formation in <em>Drosophila</em> embryos.</p>
+                <div class="project-tags">
+                    <span class="tag">Image Analysis</span>
+                    <span class="tag">Confocal Microscopy</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Biology</span>
+                </div>
+            </div>
+            
+            <div class="project">
+                <h3><a href="https://github.com/smritivaidyanathan/desktop-world">Desktop World</a></h3>
+                <p>Final group project for Brown's CSCI 1230: Computer Graphics. A procedurally generated snow globe–like world featuring terrain, particle systems, boids, custom shaders, and selective bloom effects.</p>
+                <p style="margin-top: 10px;"><strong>Live demo:</strong> <a href="https://desktop-world.netlify.app/" style="color: #667eea;">desktop-world.netlify.app</a></p>
+                <div class="project-tags">
+                    <span class="tag">Computer Graphics</span>
+                    <span class="tag">WebGL</span>
+                    <span class="tag">Shaders</span>
+                    <span class="tag">Procedural Generation</span>
+                </div>
+            </div>
+            
+            <div class="project">
+                <h3><a href="https://github.com/smritivaidyanathan/WordleTerminal">WordleTerminal</a></h3>
+                <p>A terminal-based clone of NYT Wordle, built for fun in Python.</p>
+                <div class="project-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Terminal</span>
+                    <span class="tag">Game</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
