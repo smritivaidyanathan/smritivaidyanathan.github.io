@@ -3,396 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smriti's Portfolio</title>
+    <title>Smriti Vaidyanathan</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-            line-height: 1.5;
-            color: #2c3e50;
-            background-color: #f5f7fa;
-            font-size: 14px;
+            font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #1c2f4a;
+            font-size: 15px;
+            line-height: 1.65;
         }
-        
-        .container {
+
+        /* Nav */
+        nav {
             display: flex;
-            min-height: 100vh;
-            max-width: 1300px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        }
-        
-        /* Left sidebar - more compact */
-        .sidebar {
-            flex: 0 0 300px;
-            background: linear-gradient(135deg, #2980b9 0%, #1f5f8b 100%);
-            color: white;
-            padding: 25px 20px;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #fff;
-            margin: 0 auto 20px;
-            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            color: #2980b9;
-            border: 3px solid rgba(255,255,255,0.2);
+            padding: 28px 64px;
+            border-bottom: 1px solid #e4eaf2;
         }
-        
-        .sidebar h1 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-            text-align: center;
+
+        .nav-name {
+            font-size: 1em;
             font-weight: 600;
-        }
-        
-        .sidebar p {
-            font-size: 0.95em;
-            line-height: 1.6;
-            opacity: 0.92;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        
-        .contact-links {
-            margin-top: 20px;
-            text-align: center;
-        }
-        
-        .contact-links a {
-            color: white;
+            color: #1c2f4a;
+            letter-spacing: 0.01em;
+            cursor: pointer;
             text-decoration: none;
-            margin: 0 8px;
+        }
+
+        .nav-name:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7a95;
             font-size: 0.9em;
-            opacity: 0.85;
-            transition: opacity 0.3s;
-            padding: 2px 0;
-            border-bottom: 1px solid transparent;
+            letter-spacing: 0.02em;
+            transition: color 0.2s;
         }
-        
-        .contact-links a:hover {
-            opacity: 1;
-            border-bottom-color: rgba(255,255,255,0.5);
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1c2f4a;
         }
-        
-        /* Right content area - more compact */
-        .content {
-            flex: 1;
-            padding: 25px 30px;
-            overflow-y: auto;
-            height: 100vh;
+
+        /* Main */
+        main {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 72px 40px 80px;
         }
-        
-        .content h2 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 6px;
+
+        /* Home view */
+        .home-view {
+            display: flex;
+            gap: 56px;
+            align-items: flex-start;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .bio h1 {
+            font-size: 1.6em;
             font-weight: 600;
-        }
-        
-        .project {
-            background: white;
-            border-radius: 6px;
-            padding: 20px;
+            color: #1c2f4a;
             margin-bottom: 18px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-            border-left: 3px solid #3498db;
-            transition: all 0.2s ease;
-            border: 1px solid #e8ecf0;
+            letter-spacing: -0.01em;
         }
-        
-        .project:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-left-color: #2980b9;
-        }
-        
-        .project h3 {
-            font-size: 1.2em;
-            margin-bottom: 8px;
-            color: #2c3e50;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
-        .project h3 a {
-            color: #3498db;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .project h3 a:hover {
-            color: #2980b9;
-            text-decoration: underline;
-        }
-        
-        .project p {
-            color: #5a6c7d;
-            line-height: 1.5;
+
+        .bio p {
+            color: #4a5a72;
             font-size: 0.95em;
-            margin-bottom: 6px;
+            margin-bottom: 13px;
         }
-        
-        .project p strong {
-            color: #34495e;
+
+        .bio p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .bio a {
+            color: #1c2f4a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .bio a:hover {
+            opacity: 0.65;
+        }
+
+        .social-links {
+            margin-top: 28px;
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #1c2f4a;
+            text-decoration: none;
+            font-size: 0.88em;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid #b0bdd0;
+            padding-bottom: 1px;
+            transition: border-color 0.2s, opacity 0.2s;
+        }
+
+        .social-links a:hover {
+            border-color: #1c2f4a;
+        }
+
+        /* Projects view */
+        .projects-view {
+            display: none;
+        }
+
+        .projects-view h2 {
+            font-size: 1.1em;
             font-weight: 600;
-        }
-        
-        .project p em {
-            color: #7f8c8d;
-            font-size: 0.9em;
-        }
-        
-        .project-tags {
-            margin-top: 12px;
-        }
-        
-        .tag {
-            display: inline-block;
-            background: #ecf0f1;
-            color: #5a6c7d;
-            padding: 3px 10px;
-            border-radius: 12px;
+            color: #1c2f4a;
+            margin-bottom: 40px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
             font-size: 0.8em;
-            margin-right: 6px;
-            margin-bottom: 4px;
-            font-weight: 500;
         }
-        
-        /* Section spacing */
-        .content h2:not(:first-of-type) {
-            margin-top: 35px;
+
+        .project-item {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e4eaf2;
         }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .container {
+
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .project-item h3 {
+            font-size: 0.97em;
+            font-weight: 600;
+            color: #1c2f4a;
+            margin-bottom: 7px;
+        }
+
+        .project-item h3 a {
+            color: #1c2f4a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .project-item h3 a:hover {
+            opacity: 0.65;
+        }
+
+        .project-item p {
+            color: #4a5a72;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .project-item .demo-link {
+            color: #1c2f4a;
+            font-size: 0.88em;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .project-item .demo-link:hover {
+            opacity: 0.65;
+        }
+
+        /* Mobile */
+        @media (max-width: 680px) {
+            nav {
+                padding: 20px 24px;
+            }
+
+            main {
+                padding: 48px 24px 60px;
+            }
+
+            .home-view {
                 flex-direction: column;
+                gap: 32px;
+                align-items: center;
+                text-align: center;
             }
-            
-            .sidebar {
-                flex: none;
-                position: static;
-                height: auto;
-                padding: 20px 15px;
+
+            .social-links {
+                justify-content: center;
             }
-            
-            .content {
-                padding: 20px 15px;
-                height: auto;
-            }
-            
-            .profile-image {
-                width: 100px;
-                height: 100px;
-                font-size: 30px;
-            }
-            
-            .sidebar h1 {
-                font-size: 1.6em;
-            }
-            
-            .content h2 {
-                font-size: 1.5em;
-            }
-            
-            .project {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            body {
-                font-size: 13px;
-            }
-            
-            .sidebar h1 {
-                font-size: 1.4em;
-            }
-            
-            .content h2 {
-                font-size: 1.3em;
-            }
-            
-            .project h3 {
-                font-size: 1.1em;
+
+            .nav-links {
+                gap: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Left Sidebar -->
-        <div class="sidebar">
-            <div class="profile-image">
-                <img src="Smriti_Headshot.jpg" alt="Smriti" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-            </div>
-            <h1>Smriti Vaidyanathan</h1>
-            <p>
-                I'm a Master's student in Computer Science at Columbia University, conducting research at the New York Genome Center in the <a href="https://daklab.github.io/" style="color: white; text-decoration: underline;">Knowles Lab</a>. My work focuses on developing deep learning models for integrative analysis of gene expression and alternative splicing in single-cell transcriptomic data.
-            </p>
-            <p>
-                Previously, I earned my Sc.B. in Computational Biology from Brown University, where I studied alternative splicing regulation by RNA-binding protein condensates using computational analysis of bioimages in the <a href="https://www.larschanlab.com/" style="color: white; text-decoration: underline;">Larschan Lab</a>.
-            </p>
-            </p>
-            <div class="contact-links">
-                <a href="mailto:smriti.vaidyanathan@columbia.edu">Email</a>
-                <a href="https://github.com/smritivaidyanathan">GitHub</a>
-                <a href="https://linkedin.com/in/smritivaidyanathan">LinkedIn</a>
+
+    <nav>
+        <a class="nav-name" href="#" onclick="showHome(event)">Smriti Vaidyanathan</a>
+        <ul class="nav-links">
+            <li><a href="https://scholar.google.com/citations?user=mfz9ezoAAAAJ&hl=en" target="_blank" rel="noopener">Publications ↗</a></li>
+            <li><a href="#" id="tab-projects" onclick="showProjects(event)">Projects</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- Home -->
+        <div class="home-view" id="home-view">
+            <img src="Smriti_Headshot.jpg" alt="Smriti Vaidyanathan" class="profile-img">
+            <div class="bio">
+                <h1>Smriti Vaidyanathan</h1>
+                <p>
+                    I'm an incoming Computational Biology PhD student at UC Berkeley (Fall 2026).
+                </p>
+                <p>
+                    I completed my Master's in Computer Science at Columbia University, where I conducted research at the New York Genome Center in the <a href="https://daklab.github.io/" target="_blank" rel="noopener">Knowles Lab</a>, developing deep learning models for integrative analysis of gene expression and alternative splicing in single-cell transcriptomic data.
+                </p>
+                <p>
+                    I earned my Sc.B. in Computational Biology from Brown University, where I studied alternative splicing regulation by RNA-binding protein condensates using computational analysis of bioimages in the <a href="https://www.larschanlab.com/" target="_blank" rel="noopener">Larschan Lab</a>.
+                </p>
+                <div class="social-links">
+                    <a href="mailto:smritivaidyanathan@berkeley.edu">Email</a>
+                    <a href="https://github.com/smritivaidyanathan" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://linkedin.com/in/smritivaidyanathan" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://scholar.google.com/citations?user=mfz9ezoAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+                </div>
             </div>
         </div>
-        
-        <!-- Right Content Area -->
-        <div class="content">
-            <h2>Publications</h2>
 
-            <div class="project">
-                <h3><a href="https://www.biorxiv.org/content/10.1101/2025.11.26.690853v1" target="_blank">Robust Integration of Sparse Single-Cell Alternative Splicing and Gene Expression Data with SpliceVI</a></h3>
-                <p><strong>Pre-Print (2025)</strong></p>
-                <p><em><strong>Smriti Vaidyanathan*</strong>, Keren Isaev*, Aaron Zweig, David A Knowles</em></p>
-                <p>A splicing-aware multimodal VAE that jointly models AS and GE to produce more informative cell embeddings and uncover unique biological differences.</p>
-                <div class="project-tags">
-                    <span class="tag">VAEs</span>
-                    <span class="tag">Single-Cell</span>
-                    <span class="tag">Representation Learning</span>
-                    <span class="tag">Multimodal Integration</span>
-                </div>
-            </div>
-            
-            <div class="project">
-                <h3><a href="https://elifesciences.org/articles/87865" target="_blank">Dual DNA/RNA-binding factor regulates dynamics of hnRNP splicing condensates</a></h3>
-                <p><strong>Pre-Print (2024)</strong></p>
-                <p><em>Mukulika Ray, Julia Zaborowsky, Pranav Mahableshwarkar, <strong>Smriti Vaidyanathan</strong>, Jasmine Shum, Renjith Viswanathan, Annie Huang, wh Szu-Huan Wang, Victoria Johnson, Noah Wake, Ashley M. Conard, Alexander E. Conicella, Ryan Puterbaugh, Nicolas L. Fawzi, Erica Larschan</em></p>
-                <p>Research on the regulatory mechanisms of hnRNP splicing condensates and their dynamics, exploring how dual DNA/RNA-binding factors influence alternative splicing processes.</p>
-                <div class="project-tags">
-                    <span class="tag">RNA Biology</span>
-                    <span class="tag">Splicing</span>
-                    <span class="tag">Phase Condensates</span>
-                    <span class="tag">Molecular Biology</span>
-                </div>
-            </div>
-            
-            <div class="project">
-                <h3><a href="https://www.biorxiv.org/content/10.1101/2024.01.11.575216v1" target="_blank">Sex-specific splicing occurs genome-wide during early Drosophila embryogenesis</a></h3>
-                <p><strong>eLife (2023)</strong></p>
-                <p><em>Mukulika Ray, Ashley Mae Conard, Jennifer Urban, Pranav Mahableshwarkar, Joseph Aguilera, Annie Huang, <strong>Smriti Vaidyanathan</strong>, Erica Larschan</em></p>
-                <p>Comprehensive analysis revealing widespread sex-specific alternative splicing patterns during early Drosophila development, providing insights into sex determination mechanisms.</p>
-                <div class="project-tags">
-                    <span class="tag">Genomics</span>
-                    <span class="tag">Splicing</span>
-                    <span class="tag">Drosophila</span>
-                    <span class="tag">Developmental Biology</span>
-                </div>
-            </div>
-
+        <!-- Projects -->
+        <div class="projects-view" id="projects-view">
             <h2>Projects</h2>
-            
-            <div class="project">
-                <h3><a href="https://github.com/daklab/SpliceVI">SpliceVI</a></h3>
-                <p>Research Project within Knowles Lab: Multimodal VAE to integrate gene expression and splicing signals from scRNA-seq data (see preprint above), built using scvi-tools, inspired by and adapted from MultiVI. Also includes a single-modality splicing VAE built with a partial encoder and linear decoder.</p>
-                <div class="project-tags">
-                    <span class="tag">Deep Learning</span>
-                    <span class="tag">Single-cell</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">Splicing</span>
-                </div>
+
+            <div class="project-item">
+                <h3><a href="https://github.com/daklab/SpliceVI" target="_blank" rel="noopener">SpliceVI</a></h3>
+                <p>Research project within the Knowles Lab. A multimodal VAE integrating gene expression and splicing signals from scRNA-seq data (see preprint), built using scvi-tools, inspired by and adapted from MultiVI. Also includes a single-modality splicing VAE with a partial encoder and linear decoder.</p>
             </div>
 
-            <div class="project">
-                <h3><a href="https://github.com/smritivaidyanathan/istarc">iSTAR-C</a></h3>
-                <p>Final project for Columbia's BMCS E4480: Extended iSTAR (Zhang et al., 2024) with biologically informed supervision for pixel-level cell-type prediction, using Starfysh-derived spot-level compositions and optional heat-diffusion pseudo-labels for out-of-spot supervision.</p>
-                <div class="project-tags">
-                    <span class="tag">Deep Learning</span>
-                    <span class="tag">Spatial Transcriptomics</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">Histology</span>
-                </div>
+            <div class="project-item">
+                <h3><a href="https://github.com/smritivaidyanathan/istarc" target="_blank" rel="noopener">iSTAR-C</a></h3>
+                <p>Final project for Columbia's BMCS E4480. Extended iSTAR (Zhang et al., 2024) with biologically informed supervision for pixel-level cell-type prediction, using Starfysh-derived spot-level compositions and optional heat-diffusion pseudo-labels for out-of-spot supervision.</p>
             </div>
-            
-            <div class="project">
-                <h3><a href="https://github.com/smritivaidyanathan/fly-model-continual-learning-extensions">Remembering to Learn: A Brain-Inspired Approach to Catastrophic Forgetting in AI</a></h3>
-                <p>Final project for Columbia's COMS E6998 005: Extended FlyModel with BI-R, EWC, and cascade synapses to improve continual learning on CIFAR-100. Cascade synapses notably reduced memory loss without replay.</p>
-                <div class="project-tags">
-                    <span class="tag">Continual Learning</span>
-                    <span class="tag">Neural Networks</span>
-                    <span class="tag">CIFAR-100</span>
-                    <span class="tag">Python</span>
-                </div>
+
+            <div class="project-item">
+                <h3><a href="https://github.com/smritivaidyanathan/fly-model-continual-learning-extensions" target="_blank" rel="noopener">Remembering to Learn: A Brain-Inspired Approach to Catastrophic Forgetting in AI</a></h3>
+                <p>Final project for Columbia's COMS E6998. Extended FlyModel with BI-R, EWC, and cascade synapses to improve continual learning on CIFAR-100. Cascade synapses notably reduced memory loss without replay.</p>
             </div>
-            
-            <div class="project">
+
+            <div class="project-item">
                 <h3>Brain Tumor Segmentation and Survival Prediction (BRATS 2020)</h3>
-                <p>Final project for Columbia's COMS W4995 005: Deep Learning for Computer Vision. Segmented tumor regions and predicted survival outcomes from BRATS 2020 MRI scans using U-Net and ResNet-based models.</p>
-                <div class="project-tags">
-                    <span class="tag">Medical Imaging</span>
-                    <span class="tag">Deep Learning</span>
-                    <span class="tag">U-Net</span>
-                    <span class="tag">ResNet</span>
-                </div>
-            </div>
-            
-            <div class="project">
-                <h3><a href="https://github.com/smritivaidyanathan/3D_Speckle_Volume_Quantifier">3D Speckle Volume Quantifier</a></h3>
-                <p>Custom analysis tool developed for my undergraduate honors thesis at Brown University in the Larschan Lab. Quantifies nuclear speckle volumes from confocal z-stacks to study how the GA-binding transcription factor CLAMP influences splicing condensate formation in <em>Drosophila</em> embryos.</p>
-                <div class="project-tags">
-                    <span class="tag">Image Analysis</span>
-                    <span class="tag">Confocal Microscopy</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">Biology</span>
-                </div>
+                <p>Final project for Columbia's COMS W4995: Deep Learning for Computer Vision. Segmented tumor regions and predicted survival outcomes from BRATS 2020 MRI scans using U-Net and ResNet-based models.</p>
             </div>
 
-            <div class="project">
-                <h3><a href="https://github.com/smritivaidyanathan/Mama-s-Pastaria">Mama's Pastaria (VR Game)</a></h3>
+            <div class="project-item">
+                <h3><a href="https://github.com/smritivaidyanathan/3D_Speckle_Volume_Quantifier" target="_blank" rel="noopener">3D Speckle Volume Quantifier</a></h3>
+                <p>Custom analysis tool developed for my undergraduate honors thesis at Brown University in the Larschan Lab. Quantifies nuclear speckle volumes from confocal z-stacks to study how the GA-binding transcription factor CLAMP influences splicing condensate formation in <em>Drosophila</em> embryos.</p>
+            </div>
+
+            <div class="project-item">
+                <h3><a href="https://github.com/smritivaidyanathan/Mama-s-Pastaria" target="_blank" rel="noopener">Mama's Pastaria (VR Game)</a></h3>
                 <p>Final project for Columbia's COMS W4172: 3D User Interfaces and Augmented Reality. A Unity-based VR cooking simulator where players prepare pasta dishes for customers using interactive mechanics inspired by Papa's Pizzeria and Cooking Mama.</p>
-                <div class="project-tags">
-                    <span class="tag">VR</span>
-                    <span class="tag">Unity</span>
-                    <span class="tag">C#</span>
-                    <span class="tag">Game Development</span>
-                </div>
             </div>
-            
-            
-            <div class="project">
-                <h3><a href="https://github.com/smritivaidyanathan/desktop-world">Desktop World</a></h3>
-                <p>Final project for Brown's CSCI 1230: Computer Graphics. A procedurally generated snow globe–like world featuring terrain, particle systems, boids, custom shaders, and selective bloom effects.</p>
-                <p><strong>Live demo:</strong> <a href="https://desktop-world.netlify.app/" style="color: #3498db;">desktop-world.netlify.app</a></p>
-                <div class="project-tags">
-                    <span class="tag">Computer Graphics</span>
-                    <span class="tag">WebGL</span>
-                    <span class="tag">Shaders</span>
-                    <span class="tag">Procedural Generation</span>
-                </div>
+
+            <div class="project-item">
+                <h3><a href="https://github.com/smritivaidyanathan/desktop-world" target="_blank" rel="noopener">Desktop World</a></h3>
+                <p>Final project for Brown's CSCI 1230: Computer Graphics. A procedurally generated snow globe–like world featuring terrain, particle systems, boids, custom shaders, and selective bloom effects. <a class="demo-link" href="https://desktop-world.netlify.app/" target="_blank" rel="noopener">Live demo ↗</a></p>
             </div>
-            
-            <div class="project">
-                <h3><a href="https://github.com/smritivaidyanathan/WordleTerminal">WordleTerminal</a></h3>
+
+            <div class="project-item">
+                <h3><a href="https://github.com/smritivaidyanathan/WordleTerminal" target="_blank" rel="noopener">WordleTerminal</a></h3>
                 <p>A terminal-based clone of NYT Wordle, built for fun in Python.</p>
-                <div class="project-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">Terminal</span>
-                    <span class="tag">Game</span>
-                </div>
             </div>
         </div>
-    </div>
+
+    </main>
+
+    <script>
+        function showHome(e) {
+            e.preventDefault();
+            document.getElementById('home-view').style.display = 'flex';
+            document.getElementById('projects-view').style.display = 'none';
+            document.getElementById('tab-projects').classList.remove('active');
+        }
+
+        function showProjects(e) {
+            e.preventDefault();
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('projects-view').style.display = 'block';
+            document.getElementById('tab-projects').classList.add('active');
+        }
+    </script>
+
 </body>
 </html>
